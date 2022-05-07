@@ -1,0 +1,18 @@
+package kr.hs.dgsw.network.class21;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+public class mealServiceDGSWMain {
+	public static void main(String[] args) {
+		String newUrls = "https://open.neis.go.kr/hub/mealServiceDietInfo?Type=json&ATPT_OFCDC_SC_CODE=D10&SD_SCHUL_CODE=7240454&MLSV_YMD=20220503";
+		
+		try {
+			URL url = new URL(newUrls);
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
