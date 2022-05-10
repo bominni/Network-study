@@ -7,6 +7,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class mealServiceDGSWMain {
 	public static void main(String[] args) {
@@ -26,6 +30,29 @@ public class mealServiceDGSWMain {
                 }
 
                 System.out.println(sb);
+                
+                JSONParser jsonParser = new JSONParser();
+                JSONObject jsonObject = null;
+                try {
+                	jsonObject = (JSONObject) jsonParser.parse(sb.toString());
+                } catch (ParseException e) {
+                	e.printStackTrace();
+                }
+                JSONArray jsonArray =
+                		(JSONArray) jsonObject.get("mealServiceDietInfo");
+                
+                JSONObject rowObject = (JSONObject) jsonArray.get(1);
+                JSONArray rowArray =
+                		(JSONArray) rowObject.get("row");
+                
+                for(int i=0; i<rowArray.size(); i++) {
+                	JSONObject out = (JSONObject) rowArray.get(i);
+                	System.out.println(out.get("MMEAL_SC_NM"));
+                	System.out.println(out.get("DDISH_NM"));
+                	System.out.println();
+                }
+                
+                
             }catch(UnsupportedEncodingException e){
                 e.printStackTrace();
             }catch(IOException e){

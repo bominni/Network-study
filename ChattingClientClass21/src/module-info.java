@@ -1,0 +1,3 @@
+module ChattingClientClass21 {
+	
+}
