@@ -1,29 +1,48 @@
 package kr.hs.dgsw.nework.classs21;
 
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class ClientMain {
-	
-	public static void main(String[] args) {
-		try {
-			Socket sc = new Socket("10.80.161.125", 5000);
-			
-			OutputStream os = sc.getOutputStream();
-			PrintWriter pw = new PrintWriter(os, true);
-			
-			pw.println("김민지 바보!");
-			
-		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
+public class ClientMain {
+	public static void main(String[] args) {
+		BufferedReader ibr = new BufferedReader(new InputStreamReader(System.in));
+
+        {
+            try {
+                Socket sc;
+                sc = new Socket("10.80.161.38", 5000);
+
+                //서버로 데이터 보내기
+//                OutputStream os = sc.getOutputStream();
+//                PrintStream pw = new PrintStream(os, true);
+//
+//                String imsg = "";
+//                while((imsg=ibr.readLine())!=null){
+//                    pw.println(imsg);
+//                }
+//
+//                pw.println("천사");
+//
+//                //메시지 수신
+//                InputStream is = sc.getInputStream();
+//                BufferedReader br = new BufferedReader(new InputStreamReader(is));
+//
+//                String msg = br.readLine();     //메시지 읽기
+//                System.out.println(msg);        //출력
+
+                Thread it = new InputThread(sc);
+                Thread ot = new OutputThread(sc);
+
+                it.start();
+                ot.start();
+
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

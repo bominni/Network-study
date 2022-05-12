@@ -9,20 +9,21 @@ import java.net.Socket;
 
 public class ServerMain {
 	
-	public static void main(String[] args) {
-		try {
-			ServerSocket ss = new ServerSocket(5000);
-			
-			Socket sc = ss.accept();
-			
-			InputStream is = sc.getInputStream();
-			BufferedReader br = new BufferedReader(new InputStreamReader(is));
-			System.out.println(br.readLine());
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+	 public static void main(String[] args) {
+	        try {
+	            ServerSocket ss = new ServerSocket(5000);
+
+	            Socket sc = ss.accept();
+
+	            Thread it = new InputThread(sc);
+	            Thread ot = new OutputThread(sc);
+
+	            it.start();
+	            ot.start();
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
+	    }
 
 }
