@@ -12,7 +12,7 @@ public class ClientMain {
         {
             try {
                 Socket sc;
-                sc = new Socket("10.80.161.38", 5000);
+                sc = new Socket("10.80.161.188", 5000);
 
                 //서버로 데이터 보내기
 //                OutputStream os = sc.getOutputStream();

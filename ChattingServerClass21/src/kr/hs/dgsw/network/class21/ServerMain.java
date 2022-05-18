@@ -12,14 +12,15 @@ public class ServerMain {
 	 public static void main(String[] args) {
 	        try {
 	            ServerSocket ss = new ServerSocket(5000);
-
-	            Socket sc = ss.accept();
-
-	            Thread it = new InputThread(sc);
-	            Thread ot = new OutputThread(sc);
-
-	            it.start();
-	            ot.start();
+	            while(true) {
+		            Socket sc = ss.accept();
+	
+		            Thread it = new InputThread(sc);
+		            // Thread ot = new OutputThread(sc);
+	
+		            it.start();
+		            // ot.start();
+	            }
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	        }
