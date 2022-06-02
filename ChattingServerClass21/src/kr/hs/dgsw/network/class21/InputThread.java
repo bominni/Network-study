@@ -34,6 +34,7 @@ public class InputThread extends Thread {
 
 		
 	}
+	// 메세지 보내기
 	public void run() {
 		InputStream is = null;
 		try {
