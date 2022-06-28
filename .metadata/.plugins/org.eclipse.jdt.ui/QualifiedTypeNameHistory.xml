@@ -27,6 +27,9 @@
     <fullyQualifiedTypeName name="java.io.BufferedInputStream"/>
     <fullyQualifiedTypeName name="java.io.DataInputStream"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-    <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.net.Socket"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.net.InetAddress"/>
+    <fullyQualifiedTypeName name="java.net.DatagramSocket"/>
+    <fullyQualifiedTypeName name="java.net.DatagramPacket"/>
 </qualifiedTypeNameHistroy>
